@@ -1,0 +1,13 @@
+flask
+numpy
+pandas
+matplotlib
+scikit-learn
+sentence-transformers
+transformers
+safetensors
+bm25s[full]
+PyStemmer
+jax[cpu]
+rouge-score
+bert-score
