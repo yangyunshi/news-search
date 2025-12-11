@@ -13,3 +13,4 @@ rouge-score
 bert-score
 kagglehub
 joblib
+flask-cors
