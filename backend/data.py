@@ -5,6 +5,7 @@ import kagglehub
 
 def load_news():
     # Download dataset from KaggleHub
+    print("Downloading dataset...")
     path = kagglehub.dataset_download("amananandrai/ag-news-classification-dataset")
 
     # Read train and test CSVs
@@ -12,9 +13,10 @@ def load_news():
     test_path  = os.path.join(path, "test.csv")
 
     train = pd.read_csv(train_path)
-    test  = pd.read_csv(test_path)
+    test = pd.read_csv(test_path)
 
     # Combine train and test sets
+    print("Formatting dataset...")
     news = pd.concat([train, test], ignore_index=True)
 
     # Remove Class Index column
