@@ -1,6 +1,7 @@
 # backend/app.py
 import os
 import joblib
+import Stemmer
 from flask import Flask, request, jsonify
 from data import load_news
 from embed import load_model, encode_titles
@@ -37,7 +38,8 @@ else:
     news["Cluster"] = labels
 
     # Step 5: Indexing
-    cluster_indexes = build_cluster_indexes(news, labels, k)
+    stemmer = Stemmer.Stemmer("english")
+    cluster_indexes = build_cluster_indexes(news, labels, k, stemmer=stemmer)
 
     # Save everything to cache
     joblib.dump((news, model, embeddings, labels, centroids, cluster_indexes), CACHE_FILE)
@@ -66,7 +68,7 @@ def search():
 def rebuild():
     """
     Rebuild the pipeline and overwrite the cache.
-    Useful if the dataset has changed, or you want to refresh everything.
+    Useful if the dataset has changed or you want to refresh everything.
     """
     global news, model, embeddings, labels, centroids, cluster_indexes
 
@@ -86,7 +88,8 @@ def rebuild():
     news["Cluster"] = labels
 
     # Step 5: Indexing
-    cluster_indexes = build_cluster_indexes(news, labels, k)
+    stemmer = Stemmer.Stemmer("english")
+    cluster_indexes = build_cluster_indexes(news, labels, k, stemmer=stemmer)
 
     # Save everything to cache
     joblib.dump((news, model, embeddings, labels, centroids, cluster_indexes), CACHE_FILE)
