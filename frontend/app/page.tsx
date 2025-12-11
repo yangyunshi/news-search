@@ -114,10 +114,19 @@ export default function Home() {
               backgroundColor: "#fafafa",
             }}
           >
-            <h3 style={{ margin: "0 0 5px 0" }}>
+            <h3
+              style={{
+                margin: "0 0 8px 0",
+                fontSize: "22px",   // larger title
+                fontWeight: "bold", // bold
+                color: "#000",       // black
+              }}
+            >
               {r.rank}. {r.title}
             </h3>
-            <p style={{ margin: "0 0 10px 0", color: "#555" }}>{r.description}</p>
+            <p style={{ margin: "0 0 10px 0", color: "#555", lineHeight: "1.4" }}>
+              {r.description}
+            </p>
             <small style={{ color: "#888" }}>
               Cluster {r.cluster} • Score: {r.score.toFixed(2)}
             </small>
