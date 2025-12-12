@@ -2,7 +2,7 @@
 import numpy as np
 from sklearn.cluster import KMeans
 
-def run_kmeans(embeddings: np.ndarray, k: int = 10, random_state: int = 42):
+def run_kmeans(embeddings: np.ndarray, k: int = 25, random_state: int = 42):
     """
     Run KMeans clustering on embeddings.
 

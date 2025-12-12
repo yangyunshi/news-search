@@ -37,7 +37,7 @@ else:
     embeddings = encode_titles(model, news["Title"])
 
     # Step 4: Clustering
-    k = 10
+    k = 25
     kmeans, labels, centroids = run_kmeans(embeddings, k)
     news["Cluster"] = labels
 
@@ -80,7 +80,7 @@ def rebuild():
     news = load_news()
     model = load_model()
     embeddings = encode_titles(model, news["Title"])
-    k = 10
+    k = 25
     kmeans, labels, centroids = run_kmeans(embeddings, k)
     news["Cluster"] = labels
     stemmer = Stemmer.Stemmer("english")
