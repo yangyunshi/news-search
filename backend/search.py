@@ -8,8 +8,7 @@ def find_nearest_cluster(query_embedding, centroids):
     Find the cluster whose centroid is closest to the query embedding.
     """
     print("Finding nearest cluster...")
-    similarities = np.dot(query_embedding, centroids.T)
-
+    similarities = cosine_similarity(query_embedding, centroids)
     return int(np.argmax(similarities))
 
 def search_in_cluster(query, query_embedding, cluster_indexes, centroids,
