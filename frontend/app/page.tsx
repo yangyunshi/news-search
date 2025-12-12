@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div style={{ maxWidth: "700px", margin: "50px auto", fontFamily: "Arial, sans-serif" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "30px" }}>📰 News Search</h1>
+      <h1 style={{ textAlign: "center", marginBottom: "30px", fontSize: "48px" }}>📰 News Search 📰</h1>
 
       <form onSubmit={handleSearch} style={{ display: "flex", marginBottom: "20px" }}>
         <input
